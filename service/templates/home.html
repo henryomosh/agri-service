@@ -1,0 +1,38 @@
+{% extends 'base_app.html' %}
+{% load static %}
+{% block title %} home {% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4 offset-4 mt-5 pt-5 ">
+                <div class="text-center">
+                    <img src="{% static 'images/user.png' %}" style="height: 80px">
+{#                    <i class="fa fa-user" style="font-size: 100px"></i>#}
+                </div>
+                <div class="text-center">
+                    <h2>Henry Omondi</h2>
+                </div>
+                <div class="client-progress client-profile pl-3 ml-5 pt-2">
+                    <span class="ps1">&nbsp;</span>
+                    <span class="ps2">PURCHASES:</span>
+                    <span class="ps3">0 POINTS</span>
+                </div>
+                 <div class="client-progress client-profile2 pl-3 ml-5 pt-2">
+                    <span class="ps1">&nbsp;</span>
+                    <span class="ps2">SALES:</span>
+                    <span class="ps3">0 POINTS</span>
+                </div>
+                 <div class="client-progress client-profile3 pl-3 ml-5 pt-2">
+                    <span class="ps1">&nbsp;</span>
+                    <span class="ps2">CONNECTIONS:</span>
+                    <span class="ps3">0 POINTS</span>
+                </div>
+                 <div class="client-progress client-profile4 pl-3 ml-5 pt-2">
+                    <span class="ps1">&nbsp;</span>
+                    <span class="ps2">TOTAL:</span>
+                    <span class="ps3">0 POINTS</span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,156 @@
+{% extends 'base_app.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}Market{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+         <div class="row">
+
+             <div class="col-lg-9 mt-5 offset-1 ">
+             <form method="get">
+                 <div class="form-row">
+                     <div class="form-group col-lg-4 ">
+                     <input type="text" placeholder="I am looking for..." class="form-control form-control-lg">
+                    </div>
+                 <div class=" form-group col-lg-2 ">
+                     <input type="text" placeholder="Location" class="form-control form-control-lg ">
+                 </div>
+                 <div class="form-group col-lg-2">
+                     <input type="text" placeholder="Distance" class="form-control form-control-lg">
+                 </div>
+                 <div class="ml-lg-auto offset-5">
+                     <button type="submit" class="btn btn-success btn-lg">Search</button>
+                 </div>
+                 </div>
+             </form>
+        </div>
+              <div class="col-lg-8 mt-5 offset-1 pr-0">
+                <div class="container pl-0 pr-0">
+                    <div class="row pl-3">
+                    <div class="card mr-4 mb-5" style="width: 15rem; background-color: #bababa">
+                    <img class="card-img-top" src="{% static 'images/tomato.jpg' %}">
+                    <div class="card-body">
+                        <h3 class="card-title">Tomatoes</h3>
+                        <h4 class="card-subtitle mb-3">Ksh: 444</h4>
+                        <h5 class="card-subtitle mb-2 text-muted">Nakuru, Egeton Njoro</h5>
+                        <p class="card-text">I am selling tomatoes at.... </p>
+                    </div>
+                </div>
+                    <div class="card mr-4 mb-5" style="width: 15rem; background-color: #bababa">
+                    <img class="card-img-top" src="{% static 'images/chicken.jpg' %}">
+                    <div class="card-body">
+                        <h3 class="card-title">Tomatoes</h3>
+                        <h4 class="card-subtitle mb-3">Ksh: 1000</h4>
+                        <h5 class="card-subtitle mb-2 text-muted">Nakuru, Egeton Njoro</h5>
+                        <p class="card-text">I am selling chicken at.... </p>
+                    </div>
+                </div>
+                    <div class="card mr-4 mb-5" style="width: 15rem; background-color: #bababa">
+                    <img class="card-img-top" src="{% static 'images/goats.jpg' %}">
+                    <div class="card-body">
+                        <h3 class="card-title">Goats</h3>
+                        <h4 class="card-subtitle mb-3">Ksh: 5000</h4>
+                        <h5 class="card-subtitle mb-2 text-muted">Nakuru, Egeton Njoro</h5>
+                        <p class="card-text">I am selling goat at.... </p>
+                    </div>
+                </div>
+                    <div class="card mr-4 mb-5" style="width: 15rem; background-color: #bababa">
+                        <img class="card-img-top" src="{% static 'images/tomato.jpg' %}">
+                        <div class="card-body">
+                            <h3 class="card-title">Tomatoes</h3>
+                            <h4 class="card-subtitle mb-3">Ksh: 444</h4>
+                            <h5 class="card-subtitle mb-2 text-muted">Nakuru, Egeton Njoro</h5>
+                            <p class="card-text">I am selling tomatoes at.... </p>
+                        </div>
+                    </div>
+                    <div class="card mr-4 mb-5" style="width: 15rem; background-color: #bababa">
+                        <img class="card-img-top" src="{% static 'images/chicken.jpg' %}">
+                        <div class="card-body">
+                            <h3 class="card-title">Tomatoes</h3>
+                            <h4 class="card-subtitle mb-3">Ksh: 1000</h4>
+                            <h5 class="card-subtitle mb-2 text-muted">Nakuru, Egeton Njoro</h5>
+                            <p class="card-text">I am selling chicken at.... </p>
+                        </div>
+                    </div>
+                    <div class="card mr-4 mb-5" style="width: 15rem; background-color: #bababa">
+                        <img class="card-img-top" src="{% static 'images/goats.jpg' %}">
+                        <div class="card-body">
+                            <h3 class="card-title">Goats</h3>
+                            <h4 class="card-subtitle mb-3">Ksh: 5000</h4>
+                            <h5 class="card-subtitle mb-2 text-muted">Nakuru, Egeton Njoro</h5>
+                            <p class="card-text">I am selling goat at.... </p>
+                        </div>
+                    </div>
+                    <div class="card mr-4 mb-5" style="width: 15rem; background-color: #bababa">
+                        <img class="card-img-top" src="{% static 'images/tomato.jpg' %}">
+                        <div class="card-body">
+                            <h3 class="card-title">Tomatoes</h3>
+                            <h4 class="card-subtitle mb-3">Ksh: 444</h4>
+                            <h5 class="card-subtitle mb-2 text-muted">Nakuru, Egeton Njoro</h5>
+                            <p class="card-text">I am selling tomatoes at.... </p>
+                        </div>
+                    </div>
+                    <div class="card mr-4 mb-5" style="width: 15rem; background-color: #bababa">
+                        <img class="card-img-top" src="{% static 'images/chicken.jpg' %}">
+                        <div class="card-body">
+                            <h3 class="card-title">Tomatoes</h3>
+                            <h4 class="card-subtitle mb-3">Ksh: 1000</h4>
+                            <h5 class="card-subtitle mb-2 text-muted">Nakuru, Egeton Njoro</h5>
+                            <p class="card-text">I am selling chicken at.... </p>
+                        </div>
+                    </div>
+                    <div class="card mr-4 mb-5" style="width: 15rem; background-color: #bababa">
+                        <img class="card-img-top" src="{% static 'images/goats.jpg' %}">
+                        <div class="card-body">
+                            <h3 class="card-title">Goats</h3>
+                            <h4 class="card-subtitle mb-3">Ksh: 5000</h4>
+                            <h5 class="card-subtitle mb-2 text-muted">Nakuru, Egeton Njoro</h5>
+                            <p class="card-text">I am selling goat at.... </p>
+                        </div>
+                    </div>
+                    <div class="card mr-4 mb-5" style="width: 15rem; background-color: #bababa">
+                            <img class="card-img-top" src="{% static 'images/tomato.jpg' %}">
+                            <div class="card-body">
+                                <h3 class="card-title">Tomatoes</h3>
+                                <h4 class="card-subtitle mb-3">Ksh: 444</h4>
+                                <h5 class="card-subtitle mb-2 text-muted">Nakuru, Egeton Njoro</h5>
+                                <p class="card-text">I am selling tomatoes at.... </p>
+                            </div>
+                        </div>
+
+                </div>
+                </div>
+            </div>
+            <div class="col-lg-2 offset-lg-0 offset-1 categories mt-5 ml-5 mb-auto ">
+                <div class="text-center mt-3">
+                    <h5>Categories</h5>
+                </div>
+                <ul class="list-unstyled mt-5 ml-3">
+                    <li><a href="" class="side-li font-weight-bold mb-2">AgroChemicals</a></li>
+                    <hr/>
+                    <li><a href="" class="side-li font-weight-bold mb-2">Animal Feeds</a></li>
+                    <hr/>
+                    <li><a href="" class="side-li font-weight-bold mb-2">Cash Crops</a></li>
+                    <hr/>
+                    <li><a href="" class="side-li font-weight-bold mb-2">Cereals</a></li>
+                    <hr/>
+                    <li><a href="" class="side-li font-weight-bold mb-2">Farm Equipment and Tools</a></li>
+                    <hr/>
+                    <li><a href="" class="side-li font-weight-bold mb-2">Livestock</a></li>
+                    <hr/>
+                    <li><a href="" class="side-li font-weight-bold mb-2">Hive Products</a></li>
+                    <hr/>
+                    <li><a href="" class="side-li font-weight-bold mb-2">Fruits</a></li>
+                    <hr/>
+                    <li><a href="" class="side-li font-weight-bold mb-2">Herbs</a></li>
+                    <hr/>
+                    <li><a href="" class="side-li font-weight-bold mb-2">Others</a></li>
+
+
+                </ul>
+            </div>
+         </div>
+
+
+    </div>
+{% endblock %}

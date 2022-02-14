@@ -1,0 +1,48 @@
+{% extends 'base_app.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}sell{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class=" col-6 offset-3 mt-4 pt-4 mb-5">
+                <form method="post" novalidate>
+                    <div class="mb-4">
+                        <h2 class="text-center">Sell Product</h2>
+                    </div>
+                    <div class="form-row">
+                        {% csrf_token %}
+                        {% for field in form.visible_fields %}
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">{{ field.label }}</label>
+                                    {% if form.is_bound %}
+                                        {% if field.errors %}
+                                            {% render_field field class='form-control form-control-lg is-invalid' %}
+                                            {% for error in field.errors %}
+                                                <div class="invalid-feedback">
+                                                    {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        {% else %}
+                                            {% render_field field class='form-control form-control-lg is-valid' %}
+                                        {% endif %}
+                                    {% else %}
+                                        {% render_field field class='form-control form-control-lg' %}
+                                    {% endif %}
+                                    {% if field.help_text %}
+                                        <small class="text-muted" style="">{{ field.help_text }}</small>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class=" pt-5 text-center">
+                        <button class="btn btn-success btn-lg" type="submit">Sell</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

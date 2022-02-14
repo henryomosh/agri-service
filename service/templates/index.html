@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block title %}Turi Mei{% endblock %}
+{% block body %}
+
+            <!--Slider Start-->
+        <section id="home-slider" class="owl-carousel owl-theme wf100">
+        <div class="item" style="overflow: unset">
+        <div class="slider-caption h2slider">
+          <div class="container">
+             <strong>Turi Mei<span> is the Best</span></strong>
+             <h1>farmer's point</h1>
+             <p>Connecting agricultural services</p>
+             <a href="{% url 'service:about_us' %}" class="active">Find Out More</a> <a href='{% url 'service:signup' %}'>Join us Now</a>
+          </div>
+        </div>
+        <img src="{% static 'images/my_images/hslide1.jpg' %}" alt="">
+        </div>
+        <div class="item">
+        <div class="slider-caption h2slider">
+          <div class="container">
+             <strong><span>Engage</span> with our </strong>
+             <h1>Partners</h1>
+             <p>to <strong>access unexplored</strong> markets</p>
+             <a href="{% url 'service:about_us' %}" class="active">Find Out More</a> <a href='{% url 'service:signup' %}'>Join us Now</a>
+          </div>
+        </div>
+        <img src="{% static 'images/my_images/hslide2.jpg' %}" alt="">
+        </div>
+        <div class="item">
+        <div class="slider-caption h2slider">
+          <div class="container">
+             <strong>Save <span> on farming expenses</span></strong>
+             <h1>Access resources </h1>
+             <p>At <strong>your own convenience through </strong> our partners...</p>
+             <a href="{% url 'service:about_us' %}" class="active">Find Out More</a> <a href='{% url 'service:signup' %}'>Join us Now</a>
+          </div>
+        </div>
+        <img src="{% static 'images/my_images/hslide3.jpg' %}" alt="">
+        </div>
+        </section>
+        <!--Slider End-->
+        <!--Service Area Start-->
+         <!--Service Area Start-->
+         <section class="services-area wf100">
+            <div class="container">
+               <ul>
+                  <!--box  start-->
+                  <li>
+                     <div class="sinfo">
+                        <img src="{% static 'images/my_images/sericon_pigs.png' %}" alt="">
+                        <h6>Agrovet</h6>
+                        <p> Farmer's Supply Store</p>
+                     </div>
+                  </li>
+                  <!--box  end-->
+                  <!--box  start-->
+                  <li>
+                     <div class="sinfo">
+                        <img src="{% static 'images/my_images/sericon_team.png' %}" alt="">
+                        <h6>Consultancy</h6>
+                        <p>Resources & Financial Advice</p>
+                     </div>
+                  </li>
+                  <!--box  end-->
+                  <!--box  start-->
+                  <li>
+                     <div class="sinfo">
+                        <img src="{% static 'images/my_images/sericon_market.png' %}" alt="">
+                        <h6>Product Marketing</h6>
+                        <p> Reach Consumers Faster</p>
+                     </div>
+                  </li>
+                  <!--box  end-->
+                  <!--box  start-->
+                  <li class="active">
+                     <div class="sinfo">
+                        <img src="{% static 'images/my_images/tractor2.png' %}" alt="">
+                        <h6> Tools Supply</h6>
+                        <p>Farming Product and Equipment</p>
+                     </div>
+                  </li>
+                  <!--box  end-->
+                  <!--box  start-->
+                  <li>
+                     <div class="sinfo">
+                        <img src="{% static 'images/my_images/sericon_loan.png' %}" alt="">
+                        <h6>MoA Subsidy</h6>
+                        <p>Stimulus Package for Farming</p>
+                     </div>
+                  </li>
+                  <!--box  end-->
+               </ul>
+            </div>
+         </section>
+         <!--Service Area End-->
+         <!--About Section Start-->
+         <section class="home2-about wf100 p100 gallery">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-5">
+                     <div class="video-img"><img src="{% static 'images/my_images/about.jpg' %}" alt=""> </div>
+                  </div>
+                  <div class="col-md-7">
+                     <div class="h2-about-txt">
+                        <h3>About Turi Mei</h3>
+                        <h2>All farming services can be integrated under one roof.</h2>
+                        <p> Turi Mei is a start up agricultural organization aiming to link various sectors in Agriculture to provide efficiency. Turi Mei is lead by a team of ambitious entrepreneurs who understand fundamental needs in the agricultural sector</p>
+                        <a class="aboutus" href="{% url 'service:about_us' %}">More About us</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+         </section>
+         <!--About Section End-->
+         <!--Why Ecova + Facts Start-->
+         <section class="why-ecova wf100" style="background-image : {% static 'images/my_images/whybg1.jpg' %} no-repeat">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-12">
+                     <h1> Why Turi Mei !</h1>
+                     <p>We are ambitious and and rapidly growing start up aiming to improve accessibility to farming services. Let's join
+                         us to do somithing awesome for Kenya's agricultural sector
+                     </p>
+                     <a href="#" class="cus">Signup to Join us</a>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!--Why Ecova + Facts End-->
+         <!--News & Articles Start-->
+         <section class="h2-news wf100 p80">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="section-title-2">
+                        <h5>Read Our Latest</h5>
+                        <h2>News & Articles</h2>
+                     </div>
+                  </div>
+                  <div class="col-md-6"> <a href="#" class="view-more">View More News</a> </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="blog-post-large">
+                        <div class="post-thumb"> <a href="#"><i class="fas fa-link"></i></a> <img src="{% static 'images/my_images/farmer.jpg' %}" alt=""></div>
+                        <div class="post-txt">
+                           <ul class="post-meta">
+                              <li><i class="fas fa-calendar-alt"></i> 29 January, 2022</li>
+                              <li><i class="fas fa-comments"></i> 134 Comments</li>
+                           </ul>
+                           <h5><a href="#">Farming our lands for Better Future</a></h5>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <!--Blog Small Post Start-->
+                     <div class="blog-small-post">
+                        <div class="post-thumb"> <a href="#"><i class="fas fa-link"></i></a> <img src="{% static 'images/my_images/news_chicken.jpg' %}" alt=""> </div>
+                        <div class="post-txt">
+                           <span class="pdate"> <i class="fas fa-calendar-alt"></i> 29 January, 2022</span>
+                           <h5><a href="#">How you can market poultry.</a></h5>
+                           <p>According to a survey the perceived higher cost of poultry.</p>
+                           <a href="#" class="rm">Read More</a>
+                        </div>
+                     </div>
+                     <!--Blog Small Post End-->
+                     <!--Blog Small Post Start-->
+                     <div class="blog-small-post">
+                        <div class="post-thumb"> <a href="#"><i class="fas fa-link"></i></a> <img src="{% static 'images/my_images/news_greenhouse.jpg' %}" alt=""> </div>
+                        <div class="post-txt">
+                           <span class="pdate"> <i class="fas fa-calendar-alt"></i> 29 January, 2022</span>
+                           <h5><a href="#">The effort to invest in greenhouse is increasing.</a></h5>
+                           <p>Majority have increased interest in green house farming following.</p>
+                           <a href="#" class="rm">Read More</a>
+                        </div>
+                     </div>
+                     <!--Blog Small Post End-->
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!--News & Articles End-->
+{% endblock %}

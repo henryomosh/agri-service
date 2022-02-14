@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'bootstrap-4.6.1-dist/css/bootstrap.min.css' %}">
+    <link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'css/style2.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'css/card.css' %}" rel="stylesheet" media="all">
+
+
+
+</head>
+<body>
+<nav class="navbar navbar-expand-sm custom-navbar">
+    <div class="container">
+        <div class="offset-4 offset-lg-5 top-nav">
+        Hello, <strong>{{ user.username}}</strong>
+        </div>
+    </div>
+
+</nav>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2f3538">
+    <!-- brand -->
+    <a class="navbar-brand" href="{% url 'service:home' %}"><img src="{% static 'images/logo2.png' %}" style="height: 60px" > </a>
+    <!-- toggler -->
+    <button class="navbar-toggler p-4" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+    aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- links right -->
+    <ul class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav ml-lg-2 custom-nav p-lg-5 p-sm-3">
+            <li class="nav-item">
+                <a href="{% url 'service:market' %}" class="nav-link "><i class="fas fa-money-check-alt"></i> Market</a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{% url 'service:sell' %}" class="nav-link"><i class="fas fa-chart-area "></i> Sell Product</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'service:providers' %}" class="nav-link"><i class="fas fa-city"></i> Register Business</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    <i class="fas fa-briefcase"></i> Services
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{% url 'service:agrovets' %}">Agrovet</a>
+                    <a class="dropdown-item" href="#">Industry</a>
+
+                </div>
+            </li>
+
+        </ul>
+        <ul class="navbar-nav ml-lg-auto custom-nav p-lg-3">
+            <li class="nav-item">
+                <a href="" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'service:logout' %}" class="nav-link"><i class="fas fa-sign-out-alt"></i> Log out</a>
+            </li>
+
+        </ul>
+
+    </div>
+</nav>
+{% block body %}
+{% endblock %}
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'bootstrap-4.6.1-dist/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% extends 'base_app.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}Agrovets{% endblock %}
+{% block body %}
+
+<div class="container mx-auto mt-4">
+  <div class="row">
+    {% for provider in providers %}
+        <div class="col-md-3">
+      <div class="card" style="width: 18rem;">
+          <img src="{% static 'images/agrovet.jpg' %}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ provider.name }}</h5>
+                <h6 class="card-subtitle mb-2">{{provider.location}}</h6>
+            <h6 class="card-text">{{ provider.phone_number }}</h6>
+            <p class="card-text">{{ provider.email_address }}</p>
+               <a href="#" class="btn btn-primary"><i class="fas fa-link"></i>Hire me</a>
+
+          </div>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+  </div>
+{% endblock %}

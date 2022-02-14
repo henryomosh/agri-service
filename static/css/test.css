@@ -1,0 +1,42 @@
+.top-nav-container{
+    background-color: black !important;
+    color: #b8b8b8;
+
+}
+.top-nav-container .row {
+    padding: 11px 0px;
+    line-height: 16px;
+    font-size: 15px;
+    font-family: 'Lato';
+
+}
+
+.top-nav-left {
+    float: left;
+    margin: 0px 15px;
+
+}
+
+.top-nav-container a{
+    color: #b8b8b8 ;
+}
+.top-nav-container a:hover{
+    color: #e8e8e8;
+}
+.top-nav-right{
+    float: right;
+    margin: 0px 12px;
+
+}
+.top-nav-right  a{
+    opacity: 0.9;
+}
+
+.signup-card {
+    background-color: #0c5460 !important;
+    padding: 200px;
+    border: 5px;
+}
+.login-card{
+
+}

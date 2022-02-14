@@ -1,0 +1,54 @@
+body{
+    background: url("../images/news-artilcesbg.jpg");
+}
+body, div{
+
+}
+.top-nav{
+    font-size: 20px;
+    color: whitesmoke;
+}
+.custom-navbar{
+    background-color: #1b5e20;
+}
+.custom-nav{
+    font-size: 15px;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+    color: white;
+}
+
+.client-progress{
+    font-size: 17px;
+    margin-top:1px;
+}
+div.client-progress span.ps1 {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 20px;
+}
+
+div.client-progress span.ps2 {
+    display: inline-block;
+    width : 115px;
+    text-align: right;
+}
+div.client-progress span.ps3 {
+    display: inline-block;
+    width: 85px;
+    text-align: right;
+}
+.client-profile span.ps1{
+    background-color: rgb(76, 175, 80);
+}
+.client-profile2 span.ps1{
+    background-color: rgba(44, 156, 202, 1);
+}
+.client-profile3 span.ps1{
+    background-color: rgba(153, 102, 255, 1);
+}
+.client-profile4{
+    font-weight: bold;
+}

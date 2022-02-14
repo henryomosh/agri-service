@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Gallery{% endblock %}
+{% block body %}
+         <!--Inner Header Start-->
+         <section class="wf100 p100 inner-header">
+            <div class="container">
+               <h1>Gallery</h1>
+               <ul>
+                  <li><a href="{% url 'service:index' %}">Home</a></li>
+                  <li><a href="#"> Gallery </a></li>
+               </ul>
+            </div>
+         </section>
+         <!--Inner Header End-->
+         <!--Contact Start-->
+         <div class="gallery wf100 p80">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="portfolio filter-gallery">
+                        <div id="filters" class="button-group pull-right">
+                           <button class="button is-checked" data-filter="*">All</button>
+                           <button class="button" data-filter=".f1">Crops</button>
+                           <button class="button" data-filter=".f2">Industry</button>
+                           <button class="button" data-filter=".f3">Farm</button>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="isotope items">
+                           <div class="item f1">
+                              <div class="gallery-img"> <a href="{% static 'images/gallery/g1.jpg' %}" data-rel="prettyPhoto[gallery]"><i class="fas fa-search"></i></a> <img src="{% static 'images/gallery/g1.jpg' %}" alt=""> </div>
+                           </div>
+                           <div class="item f2">
+                              <div class="gallery-img"> <a href="{% static 'images/gallery/g2.jpg' %}" data-rel="prettyPhoto[gallery]"><i class="fas fa-search"></i></a> <img src="{% static 'images/gallery/g2.jpg' %}" alt=""> </div>
+                           </div>
+                           <div class="item height2 f3">
+                              <div class="gallery-img"> <a href="{% static 'images/gallery/g3.jpg' %}" data-rel="prettyPhoto[gallery]"><i class="fas fa-search"></i></a> <img src="{% static 'images/gallery/g3.jpg' %}.jpg" alt=""> </div>
+                           </div>
+                           <div class="item width2 f1">
+                              <div class="gallery-img"> <a href="{% static 'images/gallery/g1.jpg' %}" data-rel="prettyPhoto[gallery]"><i class="fas fa-search"></i></a> <img src="{% static 'images/gallery/g4.jpg' %}" alt=""> </div>
+                           </div>
+                           <div class="item f2">
+                              <div class="gallery-img"> <a href="{% static 'images/gallery/g2.jpg' %}" data-rel="prettyPhoto[gallery]"><i class="fas fa-search"></i></a> <img src="{% static 'images/gallery/g5.jpg' %}" alt=""> </div>
+                           </div>
+                           <div class="item f3">
+                              <div class="gallery-img"> <a href="{% static 'images/gallery/g3.jpg' %}" data-rel="prettyPhoto[gallery]"><i class="fas fa-search"></i></a> <img src="{% static 'images/gallery/g6.jpg' %}" alt=""> </div>
+                           </div>
+                           <div class="item f3">
+                              <div class="gallery-img"> <a href="{% static 'images/gallery/g3.jpg' %}" data-rel="prettyPhoto[gallery]"><i class="fas fa-search"></i></a> <img src="{% static 'images/gallery/g7.jpg' %}" alt=""> </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--Contact End-->
+{% endblock %}
