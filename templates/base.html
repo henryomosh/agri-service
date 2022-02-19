@@ -22,6 +22,8 @@
     <link href="{% static 'css/slick.css' %}" rel="stylesheet">
     <link href="{% static 'css/my_css.css' %}" rel="stylesheet" type="text/css" media="all">
     <link href="{% static 'css/test.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style2.css' %}" rel="stylesheet">
+    <link href="{% static 'css/card.css' %}" rel="stylesheet">
 
       <!-- CSS FILES End -->
     {% block head %}
@@ -60,7 +62,7 @@
         <!--Header Start-->
         <header class="header-style-2">
         <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand"  href="{% url 'service:index' %}"><img src="{% static 'images/logo2.png' %}" alt="" style="width: 210px"></a>
+        <a class="navbar-brand"  href="{% url 'service:index' %}" style="background-color: #0b2e13"><img src="{% static 'images/logo2.png' %}" alt="" style="height: 50px; width:215px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <i class="fas fa-bars"></i> </button>
         <div class="collapse navbar-collapse pl-0" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
@@ -70,6 +72,7 @@
             <li class="nav-item"> <a class="nav-link" href="{% url 'service:gallery' %}">Gallery</a> </li>
             <li class="nav-item"> <a class="nav-link" href="{% url 'service:about_us' %}">About</a> </li>
             <li class="nav-item"> <a class="nav-link" href="{% url 'service:contact' %}">Contacts</a> </li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'service:market_home' %}">Market</a></li>
           </ul>
           <ul class="topnav-right" style="display: inline">
 {#             <li> <a class="mdonate" href="{% url 'service:account' %}"><span>Become a Partner</span></a> </li>#}
@@ -108,12 +111,12 @@
                      <div class="col-lg-3 col-md-6 col-sm-6">
                         <!--Footer Widget Start-->
                         <div class="footer-widget">
-                           <h4 class="pl-5">Our Core values</h4>
+                           <h4 class="">Our Core values</h4>
                            <ul class="quick-links ">
-                              <li class="pl-5"><a href="#">Networking</a></li>
-                              <li class="pl-5"><a href="#">Transparency</a></li>
-                              <li class="pl-5"><a href="#">Teamwork</a></li>
-                              <li class="pl-5"><a href="#">Professionalism</a></li>
+                              <li class=""><a href="#">Networking</a></li>
+                              <li class=""><a href="#">Transparency</a></li>
+                              <li class=""><a href="#">Teamwork</a></li>
+                              <li class=""><a href="#">Professionalism</a></li>
                            </ul>
                         </div>
                         <!--Footer Widget End-->

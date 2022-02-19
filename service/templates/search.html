@@ -1,0 +1,62 @@
+{% extends 'base_app.html' %}
+{% load static %}
+{% block title %}
+    My search
+{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-9 ">
+                <div class="col-11 mt-3 ml-lg-5 ml-2">
+                    <h2>Your search results.......</h2>
+                    <div class="row">
+                        {% for product in query_list %}
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                                <div class="my-card card  ">
+                                    <img class="card-img-top" src="{{ product.image.url }}">
+                                    <div class="card-body">
+                                        <h3 class="card-title">{{ product.product_name }}</h3>
+                                        <h4 class="card-subtitle mb-3">Ksh: {{ product.price }}</h4>
+                                        <h5 class="card-subtitle mb-2 text-muted">{{ product.location }}</h5>
+                                        <p class="card-text">{{ product.description }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                         {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 mt-5">
+                <div class="categories ml-lg-auto ml-3 mr-lg-0 mr-5 ">
+                    <div class="text-center mt-2">
+                        <h5>Categories</h5>
+                    </div>
+                    <ul class="list-unstyled mt-4 text-center ">
+                        <li><a href="" class="side-li font-weight-bold mb-2">AgroChemicals</a></li>
+                        <hr/>
+                        <li><a href="" class="side-li font-weight-bold mb-2">Animal Feeds</a></li>
+                        <hr/>
+                        <li><a href="" class="side-li font-weight-bold mb-2">Cash Crops</a></li>
+                        <hr/>
+                        <li><a href="" class="side-li font-weight-bold mb-2">Cereals</a></li>
+                        <hr/>
+                        <li><a href="" class="side-li font-weight-bold mb-2">Farm Equipment and Tools</a></li>
+                        <hr/>
+                        <li><a href="" class="side-li font-weight-bold mb-2">Livestock</a></li>
+                        <hr/>
+                        <li><a href="" class="side-li font-weight-bold mb-2">Hive Products</a></li>
+                        <hr/>
+                        <li><a href="" class="side-li font-weight-bold mb-2">Fruits</a></li>
+                        <hr/>
+                        <li><a href="" class="side-li font-weight-bold mb-2">Herbs</a></li>
+                        <hr/>
+                        <li><a href="" class="side-li font-weight-bold mb-2">Others</a></li>
+
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

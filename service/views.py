@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
-from .forms import SignupForm, ServiceProviderForm, SellProductForm
+from django.shortcuts import render, redirect, get_object_or_404
+from .forms import *
 from django.contrib.auth import login, logout, authenticate
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
-from  django.utils.decorators import method_decorator
+from django.utils.decorators import method_decorator
+from django.db.models import Q
 from .models import *
 
 
@@ -74,38 +75,67 @@ def log_out(request):
     return redirect('service:login')
 
 
-@login_required
-def service_provider_form(request):
-    form = ServiceProviderForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return redirect('service:providers')
-
-    return render(request, 'providers.html', {'form': form})
-
-
-@login_required
-def provider_list(request):
-    provider = ServiceProvider.objects.all()
-    return render(request, 'agrovet.html', {'providers': provider})
-
-
-@login_required
 def market(request):
-    return render(request, 'market.html')
+    products = Sell.objects.all()
+    return render(request, 'market.html', {'products': products})
 
 
-@login_required
 def sell_product(request):
-    form = SellProductForm(request.POST or None)
+    form = SellProductForm(request.POST or None, request.FILES or None)
     if form.is_valid():
-        form.save()
-        return redirect('service:home')
+        sell = form.save(commit=False)
+        sell.seller = request.user
+        sell.save()
+        return redirect('service:market')
+
     return render(request, 'sell.html', {'form': form})
 
 
+def product_details(request, product_id):
+    product = get_object_or_404(Sell, pk=product_id)
+    return render(request, 'product_details.html', {'product': product})
 
 
+def search(request):
+    if request.method == 'GET':
+        product = request.GET.get('product_name')
+        query_list = Sell.objects.filter(product_name__contains=product)
+        return render(request, 'search.html', {'query_list': query_list})
+
+    return redirect('service:market')
 
 
+def profile(request):
+    return render(request, 'profile.html')
+
+
+def article_form(request):
+    if request.method == 'POST':
+        form = ArticleForm(request.POST or None, request.FILES or None)
+        if form.is_valid():
+            article = form.save(commit=False)
+            article.owner = request.user
+            article.save()
+            return redirect('service:home')
+    else:
+        form = ArticleForm()
+    return render(request, 'article.html', {'form': form})
+
+
+def market_home(request):
+    products = Sell.objects.all()
+    return render(request, 'market_home.html', {'products': products})
+
+
+def search_home(request):
+    if request.method == 'GET':
+        product = request.GET.get('product_name')
+        query_list = Sell.objects.filter(product_name__contains=product)
+        return render(request, 'search_home.html', {'query_list': query_list})
+
+    return redirect('service:market_home')
+
+
+def page_not_found(request, exception):
+    return render(request, 'status.html', status=404)
 

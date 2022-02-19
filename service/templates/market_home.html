@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}Market{% endblock %}
+{% block body %}
+    <section class="wf100 p80">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-lg-9 ">
+                    <div class="col-11 mt-5 ml-lg-5 ml-2">
+                        <form method="get" action="{% url 'service:search_home' %}">
+                            <div class="form-row">
+                                <div class="form-group col-lg-8">
+                                    <input type="text" placeholder="I am looking for..." class="form-control" name="product_name">
+                                </div>
+                                {#                             <div class=" form-group col-lg-3 ">#}
+                                {#                                 <input type="text" placeholder="Location" class="form-control" name="location">#}
+                                {#                             </div>#}
+                                {#                             <div class="form-group col-lg-3">#}
+                                {#                                 <input type="text" placeholder="Category" class="form-control" name="category">#}
+                                {#                             </div>#}
+                                <div class="form-group col-lg-4">
+                                    <button type="submit" class="btn btn-success w-100">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-11 mt-3 ml-lg-5 ml-2">
+                        <div class="row">
+                            {% for product in products %}
+                                <div class="mark col-lg-3 col-md-3 col-sm-12 col-6 mb-5">
+                                    <div class="my-card card h-100">
+                                        <div class="my-thumb">
+                                            <a href="{% url 'service:product_details' product.pk %}">
+                                                <i class="fas fa-link"></i>
+                                            </a>
+                                            <img class="card-img-top" src="{{ product.image.url }}">
+                                        </div>
+                                        <div class="card-body">
+                                            <a href="{% url 'service:product_details' product.pk %}">
+                                                <h5 class="card-title mb-4" style="color: whitesmoke">{{ product.product_name }}</h5>
+                                                <h6 class="card-subtitle mb-3 " style="color: whitesmoke">Ksh {{ product.price }}</h6>
+                                                <p class="card-text mb-2"><i class="fas fa-phone"></i> 0725262728 </p>
+                                            </a>
+                                            <p class="">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                            </p>
+                                            <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-map-marker-alt"></i> {{ product.location }}</h6>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 mt-5">
+                    <div class="categories ml-lg-auto ml-3 mr-lg-0 mr-5 ">
+                        <div class="text-center mt-2">
+                            <h5>Categories</h5>
+                        </div>
+                        <ul class="list-unstyled mt-4 text-center ">
+                            <li><a href="" class="side-li font-weight-bold mb-2">AgroChemicals</a></li>
+                            <hr/>
+                            <li><a href="" class="side-li font-weight-bold mb-2">Animal Feeds</a></li>
+                            <hr/>
+                            <li><a href="" class="side-li font-weight-bold mb-2">Cash Crops</a></li>
+                            <hr/>
+                            <li><a href="" class="side-li font-weight-bold mb-2">Cereals</a></li>
+                            <hr/>
+                            <li><a href="" class="side-li font-weight-bold mb-2">Farm Equipment and Tools</a></li>
+                            <hr/>
+                            <li><a href="" class="side-li font-weight-bold mb-2">Livestock</a></li>
+                            <hr/>
+                            <li><a href="" class="side-li font-weight-bold mb-2">Hive Products</a></li>
+                            <hr/>
+                            <li><a href="" class="side-li font-weight-bold mb-2">Fruits</a></li>
+                            <hr/>
+                            <li><a href="" class="side-li font-weight-bold mb-2">Herbs</a></li>
+                            <hr/>
+                            <li><a href="" class="side-li font-weight-bold mb-2">Others</a></li>
+
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

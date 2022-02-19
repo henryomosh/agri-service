@@ -1,5 +1,6 @@
 body{
-    background: url("../images/news-artilcesbg.jpg");
+    /*background: url("../images/news-artilcesbg.jpg") no-repeat;*/
+    background: white;
 }
 body, div{
 
@@ -51,4 +52,91 @@ div.client-progress span.ps3 {
 }
 .client-profile4{
     font-weight: bold;
+}
+.my-card{
+    background: #222222;
+    margin-top: 20px;
+    color: white!important;
+
+}
+
+@media (max-width: 480px) and (min-width: 160px) {
+    .my-card{
+
+    }
+}
+.card-title{
+    font-size: 15px;
+}
+.card-subtitle{
+    font-size: 14px;
+}
+.card-subtitle, .card-text{
+    font-size: 13px;
+}
+.file-upload{
+    color: #1b5e20;
+}
+
+.my-card:hover .my-thumb a{
+    top: -230px;
+    opacity: 1;
+
+}
+
+
+.my-card:hover .my-thumb img{
+    opacity: 0.6;
+}
+
+.my-card:hover .card-title {
+    color: #0062cc;
+
+}
+
+.my-card:hover  .card-subtitle{
+    color: #0062cc;
+}
+
+.my-card:hover  .card-title {
+    color: #0062cc;
+
+}
+.my-card .card-title, .btn, .btn-primary, .btn-success, .btn-danger, .mark .my-card, .my-card .card-subtitle, .my-card .my-thumb img, .my-card .my-thumb a, ul {
+    transition: all ease-in-out 0.6s;
+}
+
+.my-thumb a:hover{
+    border-color: #0062cc;
+    background-color: #0062cc ;
+
+}
+.my-thumb a{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    left: 0;
+    right: 0;
+    top: -345px;
+    bottom: 0;
+    margin: auto;
+    background: none;
+    text-align: center;
+    line-height: 38px;
+    font-size: 16px;
+    border-radius: 100%;
+    z-index: 99;
+    color: #fff;
+    opacity: 0;
+    border: 2px solid #fff;
+}
+.mark:hover .my-card{
+    z-index: 190;
+}
+.my-card a:link, .my-card a:hover{
+    text-decoration: none;
+}
+
+.my-card a{
+    color: #f3f3f3;
 }

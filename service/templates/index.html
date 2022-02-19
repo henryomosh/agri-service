@@ -115,7 +115,7 @@
          </section>
          <!--About Section End-->
          <!--Why Ecova + Facts Start-->
-         <section class="why-ecova wf100" style="background-image : {% static 'images/my_images/whybg1.jpg' %} no-repeat">
+         <section class="why-ecova wf100" style="background: url({% static 'images/my_images/whybg1.jpg' %}) no-repeat;">
             <div class="container">
                <div class="row">
                   <div class="col-md-12">
@@ -123,7 +123,7 @@
                      <p>We are ambitious and and rapidly growing start up aiming to improve accessibility to farming services. Let's join
                          us to do somithing awesome for Kenya's agricultural sector
                      </p>
-                     <a href="#" class="cus">Signup to Join us</a>
+                     <a href="{% url 'service:signup' %}" class="cus">Signup to Join us</a>
                   </div>
                </div>
             </div>

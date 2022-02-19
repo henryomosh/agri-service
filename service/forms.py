@@ -9,7 +9,7 @@ class SignupForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'phone_number']
+        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'phone_number', 'you_are']
 
     def clean_email(self):
         if User.objects.filter(email=self.cleaned_data['email']).exists():
@@ -21,18 +21,22 @@ class SignupForm(UserCreationForm):
         self.fields['password1'].help_text = 'Your password must contain at least 8 characters'
 
 
-class ServiceProviderForm(forms.ModelForm):
-
-    class Meta:
-        model = ServiceProvider
-        fields = '__all__'
-
-
 class SellProductForm(forms.ModelForm):
+    image = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
+
     class Meta:
         model = Sell
+        fields = ['product_name', 'category', 'price', 'location', 'description', 'image']
+
+    def __init__(self, *args, **kwargs):
+        super(SellProductForm, self).__init__(*args, **kwargs)
+        # self.fields['image'].error_messages.update({'required': 'This field is required'})
+        # self.fields['image'].widget.attrs['class'] = 'custom-file-input'
+
+
+class ArticleForm(forms.ModelForm):
+
+    class Meta:
+        model = Article
         fields = '__all__'
-
-
-
-
+        exclude = ['owner']
