@@ -1,0 +1,131 @@
+{% extends 'base_app.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}sell{% endblock %}
+{% block body %}
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'service:home' %}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'service:profile'%}">Profile</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'service:user_product_details' product.pk%}">My product</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Edit</li>
+        </ol>
+    </nav>
+    <div class="container animate-bottom " style="display:none;" id="myDiv">
+        <div class="row">
+            <div class=" col-lg-8 offset-lg-2 col-10 offset-1 mt-4 pt-4 mb-5">
+               {% if message %}
+                   <div class="row">
+                   <div class="col-12 text-center mb-5">
+                       <h5 class="text-center text-success">{{ message }}</h5>
+                   </div>
+                    <div class="col-6">
+                        <a href="{% url 'service:user_product_details' product.pk %}" class="btn btn-primary w-100">Go back</a>
+                    </div>
+                       <div class="col-6">
+                           <a href="{% url 'service:edit_product' product.pk %}" class="btn btn-success w-100">Edit Again</a>
+                       </div>
+                   </div>
+                {% else %}
+                   <form method="post" enctype="multipart/form-data" action="" novalidate>
+                       <div class="mb-4">
+                           <h2 class="text-center">Edit Product</h2>
+                       </div>
+                       <div class="form-row">
+                           {% csrf_token %}
+                           {{ form.non_field_errors }}
+                           {{ image_form.non_field_errors }}
+                           {% for hidden_field in form.hidden_fields %}
+                               {{ hidden_field.errors }}
+                           {% endfor %}
+                           {% for hidden_field in image_form.hidden_fields %}
+                               {{ hidden_field.errors }}
+                           {% endfor %}
+                           {% if form.non_field_errors %}
+                               <div class="alert alert-danger" role="alert">
+                                   {% for error in form.non_field_errors %}
+                                       {{ error }}
+                                   {% endfor %}
+                               </div>
+                           {% endif %}
+                           {% if image_form.non_field_errors %}
+                               <div class="alert alert-danger" role="alert">
+                                   {% for error in image_form.non_field_errors %}
+                                       {{ error }}
+                                   {% endfor %}
+                               </div>
+                           {% endif %}
+                           {% for field in form.visible_fields %}
+                               <div class="{% if not field.name == 'description' %} col-lg-6 col-12 {% else %}col-12{% endif %}">
+                                   <div class="form-group">
+                                       {{ field.label_tag }}
+                                       {% if form.is_bound %}
+                                           {% if field.errors %}
+                                               {% render_field field class='form-control  is-invalid' %}
+                                               {% for error in field.errors %}
+                                                   <div class="invalid-feedback">
+                                                       {{ error }}
+                                                   </div>
+                                               {% endfor %}
+                                           {% else %}
+                                               {% render_field field class='form-control is-valid' %}
+                                           {% endif %}
+                                       {% else %}
+                                           {% render_field field class='form-control' %}
+                                       {% endif %}
+                                       {% if field.help_text %}
+                                           <small class="form-text text-muted ">{{ field.help_text }}</small>
+                                       {% endif %}
+
+                                   </div>
+                               </div>
+                           {% endfor %}
+                           {% for field in image_form.visible_fields %}
+                               <div class="col-12">
+                                   <div class="custom-file">
+                                       {% if image_form.is_bound %}
+                                           {% if field.errors %}
+                                               {% render_field field class='custom-file-input is-invalid' %}
+                                               <label class="custom-file-label">Choose file</label>
+                                               {% for error in field.errors %}
+                                                   <div class="invalid-feedback">
+                                                       {{ error }}
+                                                   </div>
+                                               {% endfor %}
+                                           {% else %}
+                                               {% render_field field class='custom-file-input is-valid' %}
+                                               <label class="custom-file-label">Choose file</label>
+                                           {% endif %}
+                                       {% else %}
+                                           {% render_field field class='custom-file-input' onchange='readURL(this)' %}
+                                           <label class="custom-file-label">Choose file</label>
+                                           <img src="#" id="img">
+                                       {% endif %}
+                                       {% if field.help_text %}
+                                           <small class="form-text text-muted ">{{ field.help_text }}</small>
+                                       {% endif %}
+
+                                   </div>
+                               </div>
+                           {% endfor %}
+                       </div>
+                       <div class=" pt-5">
+                           <button class="btn btn-success" type="submit" style="width: 100%">Save</button>
+                       </div>
+                   </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% include 'footer.html' %}
+{% endblock %}
+{% block script %}
+    <script>
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+
+        });
+
+    </script>
+{% endblock %}

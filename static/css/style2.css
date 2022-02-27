@@ -1,23 +1,31 @@
 body{
     /*background: url("../images/news-artilcesbg.jpg") no-repeat;*/
-    background: white;
 }
 body, div{
 
 }
+
 .top-nav{
     font-size: 20px;
-    color: whitesmoke;
+    color: #222222;
 }
 .custom-navbar{
-    background-color: #1b5e20;
+    background-color: white;
 }
 .custom-nav{
-    font-size: 15px;
+    font-size: 18px;
 }
 
 .navbar-dark .navbar-nav .nav-link{
     color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover{
+    color: #00e3a7;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+    color: #00e3a7 !important;
 }
 
 .client-progress{
@@ -55,8 +63,14 @@ div.client-progress span.ps3 {
 }
 .my-card{
     background: #222222;
-    margin-top: 20px;
     color: white!important;
+
+
+
+}
+.marker{
+
+    padding: 5px;
 
 }
 
@@ -79,7 +93,7 @@ div.client-progress span.ps3 {
 }
 
 .my-card:hover .my-thumb a{
-    top: -230px;
+    top: -170px;
     opacity: 1;
 
 }
@@ -102,8 +116,9 @@ div.client-progress span.ps3 {
     color: #0062cc;
 
 }
-.my-card .card-title, .btn, .btn-primary, .btn-success, .btn-danger, .mark .my-card, .my-card .card-subtitle, .my-card .my-thumb img, .my-card .my-thumb a, ul {
-    transition: all ease-in-out 0.6s;
+.my-card .card-title, .btn, .btn-primary, .btn-success, .btn-danger, .mark .my-card, .my-card .card-subtitle, .my-card .my-thumb img, .my-card .my-thumb a, ul,
+.navbar-dark .navbar-nav .nav-link, .image-container img, .add-img a, .table, .table-hover, .profile-products{
+    transition: all ease-in-out 0.4s;
 }
 
 .my-thumb a:hover{
@@ -130,13 +145,57 @@ div.client-progress span.ps3 {
     opacity: 0;
     border: 2px solid #fff;
 }
-.mark:hover .my-card{
-    z-index: 190;
-}
+
 .my-card a:link, .my-card a:hover{
     text-decoration: none;
 }
 
 .my-card a{
     color: #f3f3f3;
+}
+
+.contact-social{
+    background: #f7f7f7;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    padding: 25px;
+}
+.contact-social:hover{
+    box-shadow: 0 0 0 0.2rem rgb(102 187 106 / 25%)
+}
+
+.add-img a{
+    position: absolute;
+    height: 45px;
+    width: 45px;
+    left:0;
+    margin-left: 17.5px;
+    margin-bottom: 2px;
+    bottom: 0;
+    background: none;
+    text-align: center;
+    line-height: 43px;
+    font-size: 20px;
+    border-radius: 100%;
+    z-index: 99;
+    color: green;
+    opacity: 1;
+    border: 2px solid green;
+}
+.add-img span{
+    font-size: 21px;
+    margin-left: 15px;
+    position: absolute;
+}
+
+.add-img a:hover{
+    color: white;
+    background-color: green;
+}
+
+.footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
 }

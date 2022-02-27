@@ -86,14 +86,16 @@ def sell_product(request):
         sell = form.save(commit=False)
         sell.seller = request.user
         sell.save()
-        return redirect('service:market')
+        return redirect('service:profile')
 
     return render(request, 'sell.html', {'form': form})
 
 
 def product_details(request, product_id):
     product = get_object_or_404(Sell, pk=product_id)
-    return render(request, 'product_details.html', {'product': product})
+    images = ProductImage.objects.filter(name_id__exact=product_id)
+
+    return render(request, 'product_details.html', {'product': product, 'images': images})
 
 
 def search(request):
@@ -106,20 +108,27 @@ def search(request):
 
 
 def profile(request):
-    return render(request, 'profile.html')
+    products = Sell.objects.filter(seller=request.user)
+    return render(request, 'profile.html', {'products': products})
 
 
 def article_form(request):
     if request.method == 'POST':
-        form = ArticleForm(request.POST or None, request.FILES or None)
-        if form.is_valid():
+        form = ArticleForm(request.POST, request.FILES)
+        image_form = ImageForm(request.POST, request.FILES)
+        images = request.FILES.getlist('image')
+        if form.is_valid() and image_form.is_valid():
             article = form.save(commit=False)
             article.owner = request.user
             article.save()
+            for img in images:
+                instance = ArticleImage(name=article, image=img)
+                instance.save()
             return redirect('service:home')
     else:
         form = ArticleForm()
-    return render(request, 'article.html', {'form': form})
+        image_form = ImageForm()
+    return render(request, 'article.html', {'form': form, 'image_form': image_form})
 
 
 def market_home(request):
@@ -130,7 +139,7 @@ def market_home(request):
 def search_home(request):
     if request.method == 'GET':
         product = request.GET.get('product_name')
-        query_list = Sell.objects.filter(product_name__contains=product)
+        query_list = Sell.objects.filter(Q(product_name__contains=product)|Q(location__contains=product))
         return render(request, 'search_home.html', {'query_list': query_list})
 
     return redirect('service:market_home')
@@ -138,4 +147,65 @@ def search_home(request):
 
 def page_not_found(request, exception):
     return render(request, 'status.html', status=404)
+
+
+def articles_list(request):
+    articles = Article.objects.all()
+    images = ArticleImage.objects.filter(name__owner_id=object_ids(User.objects.all()))
+    return render(request, 'holder.html', {'articles': articles, 'images': images})
+
+
+def user_product_details(request, product_id):
+    product = get_object_or_404(Sell, pk=product_id, )
+    images = ProductImage.objects.filter(name_id__exact=product_id)
+    if request.method == 'POST':
+        image_form = ProductImageForm(request.POST, request.FILES)
+        if image_form.is_valid():
+            for img in request.FILES.getlist('image'):
+                instance = ProductImage(name=product, image=img)
+                instance.save()
+    else:
+        image_form = ProductImageForm()
+    return render(request, 'user_product_details.html', {'product': product, 'images': images, 'image_form': image_form})
+
+
+def edit_user_product(request, product_id):
+    message = ''
+    product = get_object_or_404(Sell, pk=product_id)
+    if request.method == 'POST':
+        form = SellProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            message = 'Changes Saved ..'
+    else:
+        form = SellProductForm(instance=product)
+    return render(request, 'user_product_form.html', {'form': form, 'product': product, 'message': message})
+
+
+def delete_product(request, product_id):
+    product = get_object_or_404(Sell, pk=product_id)
+    product.delete()
+    return redirect('service:profile')
+
+
+def article_details(request, article_id):
+    article = get_object_or_404(Article, pk=article_id)
+    return render(request, 'article_details.html', {'article': article})
+
+
+class ArticleD(TemplateView):
+    template_name = 'article_details.html'
+
+
+def home_product_details(request, product_id):
+    product = get_object_or_404(Sell, pk=product_id)
+    images = ProductImage.objects.filter(name_id__exact=product_id)
+    return render(request, 'home_product_details.html', {'product': product, 'images': images})
+
+
+def object_ids(request):
+    for object_id in request:
+        obj = object_id.pk
+        return obj
+
 

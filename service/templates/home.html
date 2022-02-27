@@ -2,12 +2,13 @@
 {% load static %}
 {% block title %} home {% endblock %}
 {% block body %}
-    <div class="container">
-        <div class="col-6 offset-sm-3 mt-5 pt-4">
-            <div class="col-12 text-center">
+    {% include 'breadcrump.html' %}
+    <div class="container animate-bottom">
+        <div class="col-6 offset-3 mt-5 pt-4 text-center">
+            <div class=" text-center">
                 <img src="{% static 'images/avatar.svg' %}" style="height: 120px">
             </div>
-            <div class="col-12 text-center">
+            <div class=" text-center">
                 <h2>Welcome</h2>
                 <h4><strong>{{ user.get_full_name }}</strong></h4>
             </div>
@@ -46,4 +47,5 @@
 {#            </div>#}
 {#        </div>#}
 {#    </div>#}
+    {% include 'footer.html' %}
 {% endblock %}

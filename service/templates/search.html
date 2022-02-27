@@ -4,25 +4,52 @@
     My search
 {% endblock %}
 {% block body %}
-    <div class="container-fluid">
+    {% include 'breadcrump.html' %}
+    <div class="container-fluid animate-bottom">
         <div class="row">
             <div class="col-lg-9 ">
+                <div class="col-11 mt-5 ml-lg-5 ml-2 pr-0">
+                    <form method="get" action="{% url 'service:search' %}">
+                        <div class="form-row">
+                            <div class="form-group col-lg-8">
+                                <input type="text" placeholder="I am looking for..." class="form-control" name="product_name">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <button type="submit" class="btn btn-success w-100">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 <div class="col-11 mt-3 ml-lg-5 ml-2">
-                    <h2>Your search results.......</h2>
+                    <h3>Your search results ....</h3>
                     <div class="row">
                         {% for product in query_list %}
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                                <div class="my-card card  ">
-                                    <img class="card-img-top" src="{{ product.image.url }}">
-                                    <div class="card-body">
-                                        <h3 class="card-title">{{ product.product_name }}</h3>
-                                        <h4 class="card-subtitle mb-3">Ksh: {{ product.price }}</h4>
-                                        <h5 class="card-subtitle mb-2 text-muted">{{ product.location }}</h5>
-                                        <p class="card-text">{{ product.description }}</p>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-6 mb-4 pr-0 ">
+                                <div class="my-card card h-100">
+                                    <div class="my-thumb">
+                                        <a href="{% url 'service:product_details' product.pk %}">
+                                            <i class="fas fa-link"></i>
+                                        </a>
+                                        <img class="card-img-top" src="{{ product.image.url }}" alt="Product">
                                     </div>
+                                    <div class="card-body">
+                                        <a href="{% url 'service:product_details' product.pk %}">
+                                            <h5 class="card-title mb-4">{{ product.product_name }}</h5>
+                                            <h6 class="card-subtitle mb-3">Ksh {{ product.price }}</h6>
+                                        </a>
+                                        <p class="">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                        </p>
+                                        <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-map-marker-alt"></i> {{ product.location }}</h6>
+                                    </div>
+
                                 </div>
                             </div>
-                         {% endfor %}
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -59,4 +86,5 @@
             </div>
         </div>
     </div>
+    {% include 'footer.html' %}
 {% endblock %}

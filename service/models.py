@@ -2,40 +2,52 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import FileExtensionValidator
 
-SERVICE_PROVIDERS = (('AGROVET','Agrovet'), ('INDUSTRY', 'Industry'),('Marketing', 'Marketing'))
-PRODUCT_CATEGORIES = ((1, 'Livestock' ), (2, 'Fishery'), (3, 'AgroChemicals'), (4, 'Cash Crops'), (5, 'Animal Feed'), (6, 'Tools and Equipment'),
-                      (7, 'Vegetable'), (8, 'Poultry'), (9, 'Other'))
+SERVICE_PROVIDERS = (('Agrovet','Agrovet'), ('Industry', 'Industry'),('Marketer', 'Marketer'))
+PRODUCT_CATEGORIES = (('livestock', 'Livestock'), ('fishery', 'Fishery'), ('agroChemicals', 'AgroChemicals'),
+                      ('crops', 'Cash Crops'),('feeds', 'Animal Feed'), ('tools', 'Tools and Equipment'),
+                      ('vegetables', 'Vegetables'), ('poultry', 'Poultry'), ('other', 'Other'))
 
-USER_TYPE = ((1, 'farmer'), (2, 'agrovet'), (3, 'industry_agent'), (4, 'marketer'))
+USER_TYPE = (('Farmer', 'Farmer'), ('Agrovet', 'Agrovet'), ('Industry', 'Industry Agent'), ('Marketer', 'Marketer'))
+
+LOCATION = (('Njoro', 'Njoro'),('Naivasha', 'Naivasha'), ('Nakuru-Town-East', 'Nakuru Town East'),
+            ('Nakuru-Town-West', 'Nakuru Town West'), ('Bahati', 'Bahati'), ('Gilgil', 'Gilgil')
+            , ('Kuresoi-North', 'Kuresoi North'), ('Lanet', 'Lanet'), ('London', 'London'))
 
 
 class User(AbstractUser):
     phone_number = models.CharField(max_length=30)
     address = models.CharField(max_length=30)
-    you_are = models.CharField(max_length=200, choices=USER_TYPE, default=1)
-
-
-# class SellImages(models.Model):
-#     image = models.FileField(null=True, blank=True, validators=[FileExtensionValidator(['png', 'jpg', 'jpeg'])])
+    you_are_a = models.CharField(max_length=200, choices=USER_TYPE)
 
 
 class Sell(models.Model):
     seller = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sell_products')
     product_name = models.CharField(max_length=200)
-    category = models.IntegerField(choices=PRODUCT_CATEGORIES)
+    category = models.TextField(choices=PRODUCT_CATEGORIES)
     price = models.IntegerField()
-    location = models.CharField(max_length=250)
+    location = models.CharField(max_length=200, choices=LOCATION)
     description = models.TextField()
-    image = models.FileField(null=True, blank=True, validators=[FileExtensionValidator(['png', 'jpg', 'jpeg'])])
+    image = models.FileField(upload_to='products/', null=True, blank=True, validators=[FileExtensionValidator(['png', 'jpg', 'jpeg'])])
+
+
+class ProductImage(models.Model):
+    name = models.ForeignKey(Sell, on_delete=models.CASCADE, null=True, blank=True, related_name='product_image')
+    image = models.FileField(upload_to='products/images/', null=True, blank=True, validators=[FileExtensionValidator(['png', 'jpg', 'jpeg'])])
 
 
 class Article(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='article_name')
+    author = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
     text = models.TextField()
+    block_quote = models.TextField()
     date = models.DateField()
-    image = models.FileField()
+    image = models.FileField(upload_to='articles/', null=True, blank=True, validators=[FileExtensionValidator(['png', 'jpg', 'jpeg'])])
 
+
+class ArticleImage(models.Model):
+    name = models.ForeignKey(Article, on_delete=models.CASCADE, null=True)
+    image = models.FileField(upload_to='articles/images/', null=True, blank=True, validators=[FileExtensionValidator(['png', 'jpg', 'jpeg'])])
 
 
 

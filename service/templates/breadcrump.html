@@ -1,0 +1,8 @@
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">{% if not request.get_full_path == '/home/' %}<a href="{% url 'service:home' %}">Home</a>{% else %}Home{% endif %}</li>
+        <li class="breadcrumb-item active" aria-current="page">
+            {% if request.get_full_path == '/market/' %} Market{% elif request.get_full_path == '/sell-product/' %}Sell Product
+        {% elif request.get_full_path == '/article-post/' %}Post Article {% elif request.get_full_path == '/profile/' %} User Profile{% endif %}</li>
+    </ol>
+</nav>

@@ -9,7 +9,7 @@ class SignupForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'phone_number', 'you_are']
+        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'phone_number', 'you_are_a']
 
     def clean_email(self):
         if User.objects.filter(email=self.cleaned_data['email']).exists():
@@ -35,8 +35,26 @@ class SellProductForm(forms.ModelForm):
 
 
 class ArticleForm(forms.ModelForm):
-
+    image = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
     class Meta:
         model = Article
         fields = '__all__'
         exclude = ['owner']
+
+
+class ImageForm(forms.ModelForm):
+    image = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
+
+    class Meta:
+        model = ArticleImage
+        fields = ['image']
+
+
+class ProductImageForm(forms.ModelForm):
+    image = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
+
+    class Meta:
+        model = ProductImage
+        fields = '__all__'
+        exclude = ['name']
+

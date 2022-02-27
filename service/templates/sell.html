@@ -3,59 +3,77 @@
 {% load widget_tweaks %}
 {% block title %}sell{% endblock %}
 {% block body %}
-    <div class="container">
+    {% include 'breadcrump.html' %}
+    <div class="container animate-bottom">
         <div class="row">
-            <div class=" col-6 offset-3 mt-4 pt-4 mb-5">
+            <div class=" col-8 offset-lg-2 offset-2 mt-4 pt-4 mb-5">
                 <form method="post"enctype="multipart/form-data" novalidate>
                     <div class="mb-4">
                         <h2 class="text-center">Sell Product</h2>
                     </div>
                     <div class="form-row">
                         {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        {{ image_form.non_field_errors }}
+                        {% for hidden_field in form.hidden_fields %}
+                            {{ hidden_field.errors }}
+                        {% endfor %}
+                        {% for hidden_field in image_form.hidden_fields %}
+                            {{ hidden_field.errors }}
+                        {% endfor %}
+                        {% if form.non_field_errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {% for error in form.non_field_errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        {% if image_form.non_field_errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {% for error in image_form.non_field_errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                         {% for field in form.visible_fields %}
-                            <div class="{% if field.name == 'image' or field.name == 'description' %} col-lg-12 {% else %}col-lg-6{% endif %}">
-                                {% if field.name == 'image' %}
-                                    <div class="custom-file">
-                                {% else %}
-                                    <div class="form-group">
-                                {% endif %}
-                                    {% if not field.name == 'image' %}
-                                        <label class=" font-weight-bolder">{{ field.label }}</label>
-                                    {% endif %}
+                            <div class="{% if  field.name == 'description' or field.name == 'image'  %} col-lg-12 col-12{% else %}col-lg-6 col-12{% endif %}">
+                                <div class="{% if field.name == 'image' %} custom-file {% else %}form-group{% endif %}">
+                                    {% if not field.name == 'image' %}{{ field.label_tag }}{% endif %}
                                     {% if form.is_bound %}
                                         {% if field.errors %}
                                             {% if field.name == 'image' %}
-                                                {% render_field field class='custom-file-input is-invalid' %}
-                                                <label for="id_image" class="custom-file-label">Upload image....</label>
+                                                {% render_field field class='custom-file-input  is-invalid' %}
+                                                <label class="custom-file-label">Choose image..</label>
+                                                <img src="#" id="preview" width="60" height="60" class="mt-2" alt="No image">
                                             {% else %}
                                                 {% render_field field class='form-control  is-invalid' %}
                                             {% endif %}
                                             {% for error in field.errors %}
-                                                <p class="text-danger pt-2">{{ error }}</p>
-
+                                                <div class="invalid-feedback">
+                                                    {{ error }}
+                                                </div>
                                             {% endfor %}
                                         {% else %}
-                                            {% if field.name == 'image' %}
-
-                                                   {% render_field field class='custom-file-input is-valid' style="" %}
-                                                   <label for="id_image" class="custom-file-label">Upload image....</label>
-                                                   <p class="text-success pt-3">Upload again</p>
+                                            {% if field.name == 'image' %}{% render_field field class='custom-file-input  is-valid' %}
+                                                <label class="custom-file-label">Choose image..</label>
+                                                <img src="#" id="preview" width="60" height="60" class="mt-2" alt="No Image">
                                             {% else %}
                                                 {% render_field field class='form-control  is-valid' %}
                                             {% endif %}
                                         {% endif %}
                                     {% else %}
                                         {% if field.name == 'image' %}
-                                            {% render_field field class="custom-file-input "  %}
-                                            <label for="id_image" class="custom-file-label ">Upload image....</label>
+                                            {% render_field field class='custom-file-input' %}
+                                            <label class="custom-file-label">Choose image..</label>
+                                                <img src="#" id="preview" width="70" height="60" class="mt-2" alt="No image">
+
                                         {% else %}
-                                            {% render_field field class='form-control ' %}
+                                            {% render_field field class='form-control' %}
                                         {% endif %}
                                     {% endif %}
                                     {% if field.help_text %}
-                                        <small class="text-muted" style="">{{ field.help_text }}</small>
+                                        <small class="form-text text-muted ">{{ field.help_text }}</small>
                                     {% endif %}
-
                                 </div>
                             </div>
                         {% endfor %}
@@ -67,6 +85,7 @@
             </div>
         </div>
     </div>
+    {% include 'footer.html' %}
 {% endblock %}
 {% block script %}
     <script>
@@ -75,5 +94,21 @@
         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 
     });
+    function readIMG(input) {
+        if (input.files && input.files[0]){
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#preview').attr('src', e.target.result);
+
+            }
+            reader.readAsDataURL(input.files[0])
+        }
+
+    }
+    $('#id_image').change(function () {
+        readIMG(this)
+
+    });
+
     </script>
 {% endblock %}
