@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-v78x3n!9(mi1^94u)m%=dflu#c%7z#lvhv$o)ikqf4dnhmff2j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['turime.co.ke']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
@@ -49,12 +49,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'AgriService.urls'
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
+# CSRF_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -78,14 +79,20 @@ WSGI_APPLICATION = 'AgriService.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'mysql.connector.django',
+        'NAME': 'turimei1_agri_service',
+        'USER': 'turimei1_omosh1',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        'PASSWORD': '*GvH6sS-?O4k',
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'turimei1_agri_service',
-        'USER': 'turimei1_omosh',
-        'PASSWORD': 'ZZOy9b)@WW0N',
-        'HOST': 'localhost',
-        'PORT': 5432,
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': 'turimei1_agri_service',
+        # 'USER': 'turimei1_omosh',
+        # 'PASSWORD': 'ZZOy9b)@WW0N',
+        # 'HOST': 'localhost',
+        # 'PORT': 5432,
     }
 }
 AUTH_USER_MODEL = 'service.User'
