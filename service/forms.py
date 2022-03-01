@@ -36,10 +36,17 @@ class SellProductForm(forms.ModelForm):
 
 class ArticleForm(forms.ModelForm):
     image = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
+
     class Meta:
         model = Article
         fields = '__all__'
         exclude = ['owner']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['author'].help_text = 'Your name or the name of the person writing the article'
+        self.fields['block_quote'].help_text = 'A small quotation about your article preferably one to two sentences'
+        self.fields['image'].help_text = 'Preferred image size : 840px width x 420px height'
 
 
 class ImageForm(forms.ModelForm):

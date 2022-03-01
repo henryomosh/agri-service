@@ -4,48 +4,44 @@
 {% block body %}
     {% include 'breadcrump.html' %}
     <div class="container animate-bottom">
-        <div class="col-6 offset-3 mt-5 pt-4 text-center">
-            <div class=" text-center">
-                <img src="{% static 'images/avatar.svg' %}" style="height: 120px">
+        <div class="row">
+            <div class="col-12 mt-5 pt-4 text-center pl-0 pr-0">
+                <div class=" text-center">
+                    <img src="{% static 'images/avatar.svg' %}" style="height: 120px">
+                </div>
+                <div class=" text-center">
+                    <h2>Welcome</h2>
+                    <h5><strong>{{ user.get_full_name }}</strong></h5>
+                </div>
+                <div class="col-12  pt-2 pb-5 mb-5 pb-5  pr-0 pl-0 text-center">
+                    <div class="client-progress client-profile pt-2">
+                        <span class="ps1">&nbsp;</span>
+                        <span class="ps2">PURCHASES:</span>
+                        <span class="ps3">0 POINTS</span>
+                    </div>
+                    <div class="client-progress client-profile2 pt-2">
+                        <span class="ps1">&nbsp;</span>
+                        <span class="ps2">SALES:</span>
+                        <span class="ps3">0 POINTS</span>
+                    </div>
+                    <div class="client-progress client-profile3 pt-2">
+                        <span class="ps1">&nbsp;</span>
+                        <span class="ps2">CONNECTIONS:</span>
+                        <span class="ps3">0 POINTS</span>
+                    </div>
+                    <div class="client-progress client-profile4 pt-2">
+                        <span class="ps1">&nbsp;</span>
+                        <span class="ps2">TOTAL:</span>
+                        <span class="ps3">0 POINTS</span>
+                    </div>
+                </div>
             </div>
-            <div class=" text-center">
-                <h2>Welcome</h2>
-                <h4><strong>{{ user.get_full_name }}</strong></h4>
-            </div>
-
         </div>
 
 
     </div>
-{#    <div class="row">#}
-{#        <div class="col-lg-4 col-8 offset-lg-4 offset-2 mt-5 pt-5 pb-5">#}
-{#            <div class="text-center">#}
-{#                <img src="{% static 'images/avatar.svg' %}" style="height: 120px">#}
-{#            </div>#}
-{#            <div class="text-center">#}
-{#                <h2>{{ user.full_name }}</h2>#}
-{#            </div>#}
-{#            <div class="client-progress client-profile pl-3 ml-5 pt-2">#}
-{#                <span class="ps1">&nbsp;</span>#}
-{#                <span class="ps2">PURCHASES:</span>#}
-{#                <span class="ps3">0 POINTS</span>#}
-{#            </div>#}
-{#            <div class="client-progress client-profile2 pl-3 ml-5 pt-2">#}
-{#                <span class="ps1">&nbsp;</span>#}
-{#                <span class="ps2">SALES:</span>#}
-{#                <span class="ps3">0 POINTS</span>#}
-{#            </div>#}
-{#            <div class="client-progress client-profile3 pl-3 ml-5 pt-2">#}
-{#                <span class="ps1">&nbsp;</span>#}
-{#                <span class="ps2">CONNECTIONS:</span>#}
-{#                <span class="ps3">0 POINTS</span>#}
-{#            </div>#}
-{#            <div class="client-progress client-profile4 pl-3 ml-5 pt-2">#}
-{#                <span class="ps1">&nbsp;</span>#}
-{#                <span class="ps2">TOTAL:</span>#}
-{#                <span class="ps3">0 POINTS</span>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
+    <div class="row">
+
+    </div>
     {% include 'footer.html' %}
 {% endblock %}

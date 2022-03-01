@@ -199,3 +199,9 @@ div.client-progress span.ps3 {
     width: 100%;
     color: white;
 }
+.article-card{
+    background-color: #f5f5f5;
+
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+}

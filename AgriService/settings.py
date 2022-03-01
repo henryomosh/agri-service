@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-v78x3n!9(mi1^94u)m%=dflu#c%7z#lvhv$o)ikqf4dnhmff2j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['turime.co.ke']
 
 # Application definition
 
@@ -52,7 +52,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'AgriService.urls'
-
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -76,8 +78,14 @@ WSGI_APPLICATION = 'AgriService.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'turimei1_agri_service',
+        'USER': 'turimei1_omosh',
+        'PASSWORD': 'ZZOy9b)@WW0N',
+        'HOST': 'localhost',
+        'PORT': 5432,
     }
 }
 AUTH_USER_MODEL = 'service.User'
@@ -118,7 +126,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = (os.path.join(BASE_DIR, 'staticfiles'))
 
 # Media files
 MEDIA_URL = '/media/'

@@ -24,8 +24,14 @@ class AccountTemplateView(TemplateView):
     template_name = 'account.html'
 
 
-class BlogTemplateView(TemplateView):
-    template_name = 'blog_list.html'
+def blog_list(request):
+    articles = Article.objects.all()
+    return render(request, 'blog_list.html', {'articles': articles})
+
+
+def blog_details(request, article_id):
+    article = get_object_or_404(Article, pk=article_id)
+    return render(request, 'article_details.html', {'article': article})
 
 
 class GalleryTemplateView(TemplateView):
@@ -115,20 +121,15 @@ def profile(request):
 def article_form(request):
     if request.method == 'POST':
         form = ArticleForm(request.POST, request.FILES)
-        image_form = ImageForm(request.POST, request.FILES)
-        images = request.FILES.getlist('image')
-        if form.is_valid() and image_form.is_valid():
+        if form.is_valid():
             article = form.save(commit=False)
             article.owner = request.user
-            article.save()
-            for img in images:
-                instance = ArticleImage(name=article, image=img)
-                instance.save()
+            form.save()
             return redirect('service:home')
+
     else:
         form = ArticleForm()
-        image_form = ImageForm()
-    return render(request, 'article.html', {'form': form, 'image_form': image_form})
+    return render(request, 'article.html', {'form': form})
 
 
 def market_home(request):

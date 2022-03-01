@@ -16,6 +16,7 @@ db.sqlite3
 
 #app
 media/products
+media/articles
 # macOS
 ._*
 .DS_Store
