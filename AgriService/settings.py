@@ -79,14 +79,14 @@ WSGI_APPLICATION = 'AgriService.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mysql.connector.django',
-        'NAME': 'turimei1_agri_service',
-        'USER': 'turimei1_omosh1',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        'PASSWORD': '*GvH6sS-?O4k',
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'mysql.connector.django',
+        # 'NAME': 'turimei1_agri_service',
+        # 'USER': 'turimei1_omosh1',
+        # 'HOST': 'localhost',
+        # 'PORT': '3306',
+        # 'PASSWORD': '*GvH6sS-?O4k',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
         # 'NAME': 'turimei1_agri_service',
         # 'USER': 'turimei1_omosh',
@@ -133,7 +133,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-STATIC_ROOT = (os.path.join(BASE_DIR, 'staticfiles'))
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Media files
 MEDIA_URL = '/media/'

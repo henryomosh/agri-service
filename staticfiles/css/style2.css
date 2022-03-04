@@ -1,0 +1,207 @@
+body{
+    /*background: url("../images/news-artilcesbg.jpg") no-repeat;*/
+}
+body, div{
+
+}
+
+.top-nav{
+    font-size: 20px;
+    color: #222222;
+}
+.custom-navbar{
+    background-color: white;
+}
+.custom-nav{
+    font-size: 18px;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+    color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover{
+    color: #00e3a7;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+    color: #00e3a7 !important;
+}
+
+.client-progress{
+    font-size: 17px;
+    margin-top:1px;
+}
+div.client-progress span.ps1 {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 20px;
+}
+
+div.client-progress span.ps2 {
+    display: inline-block;
+    width : 115px;
+    text-align: right;
+}
+div.client-progress span.ps3 {
+    display: inline-block;
+    width: 85px;
+    text-align: right;
+}
+.client-profile span.ps1{
+    background-color: rgb(76, 175, 80);
+}
+.client-profile2 span.ps1{
+    background-color: rgba(44, 156, 202, 1);
+}
+.client-profile3 span.ps1{
+    background-color: rgba(153, 102, 255, 1);
+}
+.client-profile4{
+    font-weight: bold;
+}
+.my-card{
+    background: #222222;
+    color: white!important;
+
+
+
+}
+.marker{
+
+    padding: 5px;
+
+}
+
+@media (max-width: 480px) and (min-width: 160px) {
+    .my-card{
+
+    }
+}
+.card-title{
+    font-size: 15px;
+}
+.card-subtitle{
+    font-size: 14px;
+}
+.card-subtitle, .card-text{
+    font-size: 13px;
+}
+.file-upload{
+    color: #1b5e20;
+}
+
+.my-card:hover .my-thumb a{
+    top: -170px;
+    opacity: 1;
+
+}
+
+
+.my-card:hover .my-thumb img{
+    opacity: 0.6;
+}
+
+.my-card:hover .card-title {
+    color: #0062cc;
+
+}
+
+.my-card:hover  .card-subtitle{
+    color: #0062cc;
+}
+
+.my-card:hover  .card-title {
+    color: #0062cc;
+
+}
+.my-card .card-title, .btn, .btn-primary, .btn-success, .btn-danger, .mark .my-card, .my-card .card-subtitle, .my-card .my-thumb img, .my-card .my-thumb a, ul,
+.navbar-dark .navbar-nav .nav-link, .image-container img, .add-img a, .table, .table-hover, .profile-products{
+    transition: all ease-in-out 0.4s;
+}
+
+.my-thumb a:hover{
+    border-color: #0062cc;
+    background-color: #0062cc ;
+
+}
+.my-thumb a{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    left: 0;
+    right: 0;
+    top: -345px;
+    bottom: 0;
+    margin: auto;
+    background: none;
+    text-align: center;
+    line-height: 38px;
+    font-size: 16px;
+    border-radius: 100%;
+    z-index: 99;
+    color: #fff;
+    opacity: 0;
+    border: 2px solid #fff;
+}
+
+.my-card a:link, .my-card a:hover{
+    text-decoration: none;
+}
+
+.my-card a{
+    color: #f3f3f3;
+}
+
+.contact-social{
+    background: #f7f7f7;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    padding: 25px;
+}
+.contact-social:hover{
+    box-shadow: 0 0 0 0.2rem rgb(102 187 106 / 25%)
+}
+
+.add-img a{
+    position: absolute;
+    height: 45px;
+    width: 45px;
+    left:0;
+    margin-left: 17.5px;
+    margin-bottom: 2px;
+    bottom: 0;
+    background: none;
+    text-align: center;
+    line-height: 43px;
+    font-size: 20px;
+    border-radius: 100%;
+    z-index: 99;
+    color: green;
+    opacity: 1;
+    border: 2px solid green;
+}
+.add-img span{
+    font-size: 21px;
+    margin-left: 15px;
+    position: absolute;
+}
+
+.add-img a:hover{
+    color: white;
+    background-color: green;
+}
+
+.footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+}
+.article-card{
+    background-color: #f5f5f5;
+
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+}
