@@ -31,6 +31,7 @@ urlpatterns = [
     path('article-details/', views.ArticleD.as_view(), name='articles_det'),
     path('product/product-details/<int:product_id>/', views.home_product_details, name='home_product_details'),
     path('blog/blog-details/<int:article_id>/', views.blog_details, name='blog_details'),
+    path('password_reset/', views.password_reset_request, name='password_reset'),
 
 ]
 
