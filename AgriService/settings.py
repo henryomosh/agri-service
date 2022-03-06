@@ -61,8 +61,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'henryomosh7@gmail.com'
-EMAIL_HOST_PASSWORD = 'Invalid68'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 
 ROOT_URLCONF = 'AgriService.urls'
 CSRF_COOKIE_SECURE = True
@@ -95,8 +95,8 @@ DATABASES = {
         'NAME': 'turimei1_agri_service',
         'USER': 'turimei1_omosh',
         'HOST': 'localhost',
-        'PORT': '3306',
-        'PASSWORD': '-K^_y,2tEsHy',
+        'PORT': '',
+        'PASSWORD': '',
     }
 }
 AUTH_USER_MODEL = 'service.User'
