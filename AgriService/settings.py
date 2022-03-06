@@ -27,6 +27,8 @@ SECRET_KEY = 'django-insecure-v78x3n!9(mi1^94u)m%=dflu#c%7z#lvhv$o)ikqf4dnhmff2j
 DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'www.turimei.co.ke', 'turimei.co.ke', 'mail.turimei.co.ke']
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
 
 # Application definition
 
